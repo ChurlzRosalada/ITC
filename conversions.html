@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eafaf1;
+            margin: 20px;
+            padding: 0;
+            color: #2d6a4f;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #40916c;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #95d5b2;
+            border-radius: 4px;
+            background-color: #f4fdf7;
+            color: #2d6a4f;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #40916c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #2d6a4f;
+        }
+        .output {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #2d6a4f;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #40916c;
+            color: white;
+            border-radius: 4px;
+        }
+        footer a:hover {
+            background-color: #2d6a4f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Conversions</h1>
+
+        <!-- Celsius to Fahrenheit -->
+        <h2>Celsius to Fahrenheit</h2>
+        <label for="Celsius">Input Celsius</label>
+        <input id="Celsius" type="text" placeholder="Enter Celsius">
+        <button onclick="fahrenheit()">Convert</button>
+        <p class="output">The Result is: <span id="fahrenheit"></span></p>
+
+        <!-- Fahrenheit to Celsius -->
+        <h2>Fahrenheit to Celsius</h2>
+        <label for="Fahrenheit2">Input Fahrenheit</label>
+        <input id="Fahrenheit2" type="text" placeholder="Enter Fahrenheit">
+        <button onclick="Celsius2()">Convert</button>
+        <p class="output">The Result is: <span id="Celsius2"></span></p>
+
+        <!-- Meters to Feet -->
+        <h2>Meters to Feet</h2>
+        <label for="Meters">Input Meters</label>
+        <input id="Meters" type="text" placeholder="Enter Meters">
+        <button onclick="Feet()">Convert</button>
+        <p class="output">The Result is: <span id="Feet"></span></p>
+
+        <!-- Feet to Meters -->
+        <h2>Feet to Meters</h2>
+        <label for="Feet2">Input Feet</label>
+        <input id="Feet2" type="text" placeholder="Enter Feet">
+        <button onclick="Meters2()">Convert</button>
+        <p class="output">The Result is: <span id="Meters2"></span></p>
+    </div>
+
+    <footer>
+        <p><a href="index.html">Return to Homepage</a></p>
+    </footer>
+
+    <script>
+        function fahrenheit() {
+            const num1 = parseFloat(document.getElementById("Celsius").value);
+            const result = (9 / 5 * num1) + 32;
+            document.getElementById("fahrenheit").textContent = isNaN(result) ? "Invalid input" : result.toFixed(2);
+        }
+
+        function Celsius2() {
+            const num2 = parseFloat(document.getElementById("Fahrenheit2").value);
+            const result = (num2 - 32) * 5 / 9;
+            document.getElementById("Celsius2").textContent = isNaN(result) ? "Invalid input" : result.toFixed(2);
+        }
+
+        function Feet() {
+            const num3 = parseFloat(document.getElementById("Meters").value);
+            const result = num3 * 3.28;
+            document.getElementById("Feet").textContent = isNaN(result) ? "Invalid input" : result.toFixed(2);
+        }
+
+        function Meters2() {
+            const num4 = parseFloat(document.getElementById("Feet2").value);
+            const result = num4 / 3.28;
+            document.getElementById("Meters2").textContent = isNaN(result) ? "Invalid input" : result.toFixed(2);
+        }
+    </script>
+</body>
+</html>
